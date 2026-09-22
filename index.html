@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lakshman Madheshiya | Cloud Infrastructure & SRE Engineer</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#2563eb',
+                            cyan: '#0891b2',
+                            purple: '#7c3aed',
+                            emerald: '#059669',
+                            dark: '#090d16',
+                            card: '#111827',
+                            border: '#1f2937'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Fira Code', 'JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts & Lucide Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #090d16;
+            color: #e5e7eb;
+        }
+
+        /* Clean Terminal Scrollbar */
+        .term-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+        .term-scroll::-webkit-scrollbar-thumb {
+            background: #374151;
+            border-radius: 4px;
+        }
+
+        /* Subtle static grid overlay for technical feel without animation noise */
+        .bg-grid {
+            background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+    </style>
+</head>
+<body class="relative min-h-screen text-slate-200 selection:bg-cyan-500 selection:text-black bg-grid">
+
+    <!-- Sticky Navigation Header -->
+    <header class="sticky top-0 z-50 bg-[#090d16]/90 backdrop-blur-md border-b border-slate-800/80">
+        <nav class="max-w-6xl mx-auto px-4 py-3.5 flex items-center justify-between">
+            <a href="#hero" class="flex items-center gap-2 font-mono font-bold text-base text-cyan-400">
+                <i data-lucide="terminal" class="w-5 h-5 text-cyan-400"></i>
+                <span>lakshman.dev</span>
+            </a>
+            
+            <div class="hidden md:flex items-center gap-6 text-xs font-mono font-medium text-slate-300">
+                <a href="#skills" class="hover:text-cyan-400 transition-colors">Technical Skills</a>
+                <a href="#projects" class="hover:text-cyan-400 transition-colors">Infrastructure Projects</a>
+                <a href="#terminal" class="hover:text-cyan-400 transition-colors">Pipeline Demo</a>
+                <a href="#education" class="hover:text-cyan-400 transition-colors">Education & Certs</a>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <!-- GitHub Fixed SVG -->
+                <a href="https://github.com/laksh1001" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" class="p-2 rounded-lg bg-slate-800/60 hover:bg-slate-700 text-slate-300 hover:text-white transition-all border border-slate-700/60 flex items-center justify-center">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                    </svg>
+                </a>
+                <!-- LinkedIn Fixed SVG -->
+                <a href="https://www.linkedin.com/in/lakshman-m01/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" class="p-2 rounded-lg bg-slate-800/60 hover:bg-slate-700 text-slate-300 hover:text-white transition-all border border-slate-700/60 flex items-center justify-center">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                </a>
+                <a href="#contact" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-cyan-600 hover:bg-cyan-500 font-mono font-semibold text-xs text-white transition-all shadow-md">
+                    <i data-lucide="mail" class="w-3.5 h-3.5"></i> Contact
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-6xl mx-auto px-4 py-12 space-y-20">
+
+        <!-- HERO SECTION -->
+        <section id="hero" class="space-y-6 pt-4">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-cyan-950/80 border border-cyan-800/60 text-cyan-400 text-xs font-mono">
+                <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                <span>Seeking Junior Cloud / DevOps / SRE Roles</span>
+            </div>
+            
+            <div class="space-y-3">
+                <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-white">
+                    Lakshman Madheshiya
+                </h1>
+                <p class="text-lg sm:text-xl text-cyan-400 font-mono font-medium">
+                    Cloud Infrastructure, DevOps & Site Reliability Engineer
+                </p>
+            </div>
+
+            <p class="text-slate-300 text-base max-w-3xl leading-relaxed">
+                Computer Science Engineering graduate specializing in provisioning production-grade <strong class="text-white">AWS Infrastructure</strong> via <strong class="text-white">Terraform (IaC)</strong>, configuring automated <strong class="text-white">GitOps (ArgoCD)</strong> pipelines, and architecting full-stack observability with <strong class="text-white">Prometheus, Grafana, and the ECK stack</strong>.
+            </p>
+
+            <div class="flex flex-wrap items-center gap-3 pt-2">
+                <a href="#projects" class="px-5 py-2.5 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white font-mono font-semibold text-xs transition-all flex items-center gap-2 shadow-md">
+                    <span>View Infrastructure Projects</span>
+                    <i data-lucide="arrow-down-right" class="w-4 h-4"></i>
+                </a>
+                <button onclick="copyToClipboard('lakshmanmadheshiya98@gmail.com')" class="px-5 py-2.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 font-mono font-semibold text-xs transition-all border border-slate-700 flex items-center gap-2">
+                    <i data-lucide="copy" class="w-4 h-4 text-cyan-400"></i>
+                    <span>Copy Email</span>
+                </button>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-6 pt-2 text-xs font-mono text-slate-400 border-t border-slate-800/80">
+                <div class="flex items-center gap-2 pt-3">
+                    <i data-lucide="map-pin" class="w-4 h-4 text-cyan-400"></i>
+                    <span>Delhi NCR, India</span>
+                </div>
+                <div class="flex items-center gap-2 pt-3">
+                    <i data-lucide="phone" class="w-4 h-4 text-emerald-400"></i>
+                    <span>+91 9369905996</span>
+                </div>
+                <div class="flex items-center gap-2 pt-3">
+                    <i data-lucide="mail" class="w-4 h-4 text-purple-400"></i>
+                    <span>lakshmanmadheshiya98@gmail.com</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- KEY IMPACT METRICS CARDS -->
+        <section class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="bg-slate-900/80 p-5 rounded-xl border border-slate-800 space-y-1">
+                <div class="text-2xl sm:text-3xl font-bold text-cyan-400 font-mono">34,000+</div>
+                <div class="text-xs text-slate-400 font-medium">Real-time Log Events Aggregated</div>
+            </div>
+            <div class="bg-slate-900/80 p-5 rounded-xl border border-slate-800 space-y-1">
+                <div class="text-2xl sm:text-3xl font-bold text-purple-400 font-mono">11 Pods</div>
+                <div class="text-xs text-slate-400 font-medium">Polyglot Microservices Pipeline</div>
+            </div>
+            <div class="bg-slate-900/80 p-5 rounded-xl border border-slate-800 space-y-1">
+                <div class="text-2xl sm:text-3xl font-bold text-blue-400 font-mono">10-Stage</div>
+                <div class="text-xs text-slate-400 font-medium">Shift-Left DevSecOps Pipeline</div>
+            </div>
+            <div class="bg-slate-900/80 p-5 rounded-xl border border-slate-800 space-y-1">
+                <div class="text-2xl sm:text-3xl font-bold text-emerald-400 font-mono">~20ms</div>
+                <div class="text-xs text-slate-400 font-medium">Synthetic Probe Endpoint Latency</div>
+            </div>
+        </section>
+
+        <!-- TECHNICAL SKILLS MATRIX -->
+        <section id="skills" class="space-y-6">
+            <div class="border-b border-slate-800 pb-3">
+                <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+                    <i data-lucide="cpu" class="w-6 h-6 text-cyan-400"></i> Technical Expertise Matrix
+                </h2>
+                <p class="text-slate-400 text-xs font-mono mt-1">Categorized core engineering stack and operational domains.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                
+                <!-- Cloud & IaC -->
+                <div class="bg-slate-900/70 p-5 rounded-xl border border-slate-800 space-y-3">
+                    <div class="flex items-center gap-2 text-cyan-400 font-mono text-sm font-semibold">
+                        <i data-lucide="cloud" class="w-4 h-4"></i> Cloud & Infrastructure (IaC)
+                    </div>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">AWS (EKS, EC2, VPC)</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">Terraform (IaC)</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">IAM / Route 53</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">ALB / ACM</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">ECS Fargate / ECR</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">Amazon RDS</span>
+                    </div>
+                </div>
+
+                <!-- Container Orchestration & GitOps -->
+                <div class="bg-slate-900/70 p-5 rounded-xl border border-slate-800 space-y-3">
+                    <div class="flex items-center gap-2 text-purple-400 font-mono text-sm font-semibold">
+                        <i data-lucide="boxes" class="w-4 h-4"></i> Orchestration & GitOps
+                    </div>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">Kubernetes</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">Docker</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">ArgoCD</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">Kubernetes Gateway API</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">HPA Autoscaling</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">HTTPRoute Manifests</span>
+                    </div>
+                </div>
+
+                <!-- CI/CD Automation -->
+                <div class="bg-slate-900/70 p-5 rounded-xl border border-slate-800 space-y-3">
+                    <div class="flex items-center gap-2 text-blue-400 font-mono text-sm font-semibold">
+                        <i data-lucide="git-branch" class="w-4 h-4"></i> CI/CD & Build Pipelines
+                    </div>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">Jenkins Declarative</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">GitHub Actions Matrix</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">Nexus Repository Manager</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">Maven Automation</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">Git / GitHub Workflow</span>
+                    </div>
+                </div>
+
+                <!-- DevSecOps & Security -->
+                <div class="bg-slate-900/70 p-5 rounded-xl border border-slate-800 space-y-3">
+                    <div class="flex items-center gap-2 text-emerald-400 font-mono text-sm font-semibold">
+                        <i data-lucide="shield-check" class="w-4 h-4"></i> DevSecOps & Code Quality
+                    </div>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">SonarQube Quality Gates</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">Trivy Security Scanning</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">Shift-Left Security</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">CVE Vulnerability Auditing</span>
+                    </div>
+                </div>
+
+                <!-- Observability & SRE -->
+                <div class="bg-slate-900/70 p-5 rounded-xl border border-slate-800 space-y-3">
+                    <div class="flex items-center gap-2 text-amber-400 font-mono text-sm font-semibold">
+                        <i data-lucide="activity" class="w-4 h-4"></i> Monitoring & Observability
+                    </div>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">Prometheus</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">Grafana Dashboards</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">Alertmanager Slack Alerts</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">ECK Stack (Elasticsearch 9.x)</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">Blackbox Synthetic Probes</span>
+                    </div>
+                </div>
+
+                <!-- Languages & Foundations -->
+                <div class="bg-slate-900/70 p-5 rounded-xl border border-slate-800 space-y-3">
+                    <div class="flex items-center gap-2 text-rose-400 font-mono text-sm font-semibold">
+                        <i data-lucide="code" class="w-4 h-4"></i> Scripting & Systems
+                    </div>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">Java (Core, OOPs, DSA)</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">Python Scripting</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">Bash Shell Scripting</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">Linux System Admin</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">TCP/IP, DNS, HTTP/HTTPS</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- PROJECTS FEATURED SECTION -->
+        <section id="projects" class="space-y-6">
+            <div class="border-b border-slate-800 pb-3">
+                <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+                    <i data-lucide="layers" class="w-6 h-6 text-cyan-400"></i> Featured Infrastructure Projects
+                </h2>
+                <p class="text-slate-400 text-xs font-mono mt-1">Production-grade deployments on AWS EKS with continuous delivery and observability.</p>
+            </div>
+
+            <div class="space-y-6">
+                
+                <!-- Project 1 -->
+                <div class="bg-slate-900/80 p-6 rounded-xl border border-slate-800 space-y-4 hover:border-slate-700 transition-all">
+                    <div class="flex flex-wrap items-center justify-between gap-3">
+                        <span class="px-3 py-1 rounded bg-cyan-950 text-cyan-400 text-xs font-mono border border-cyan-800/80">AWS EKS • Terraform • ArgoCD • ECK Stack</span>
+                        <a href="https://github.com/laksh1001/Production-Grade_GitOps-Driven_Microservices-Application" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-slate-800 hover:bg-slate-700 text-cyan-400 text-xs font-mono border border-slate-700 transition-all">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                            View Repository
+                        </a>
+                    </div>
+
+                    <h3 class="text-xl font-bold text-white">Production-Grade GitOps-Driven Microservices & Observability Platform</h3>
+
+                    <ul class="space-y-2.5 text-slate-300 text-sm">
+                        <li class="flex items-start gap-2.5">
+                            <i data-lucide="check-circle2" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                            <span><strong>Cloud & IaC Architecture:</strong> Designed and provisioned automated AWS EKS infrastructure using Terraform, configuring custom multi-AZ VPC networking, private/public subnets, managed node groups, and IAM roles.</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i data-lucide="check-circle2" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                            <span><strong>GitOps Delivery:</strong> Built an automated continuous delivery pipeline using ArgoCD and GitHub Actions, achieving zero-downtime rolling deployments across an 11-microservice polyglot architecture on code push.</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i data-lucide="check-circle2" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                            <span><strong>Unified Traffic & Logging:</strong> Configured AWS Gateway API Controller and custom HTTPRoute manifests alongside ECK Operator (Elasticsearch 9.x, Kibana, Filebeat) aggregating 34,000+ real-time container log events.</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i data-lucide="check-circle2" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                            <span><strong>Alerting & Dynamic Scaling:</strong> Integrated Alertmanager with Slack webhooks for automated alerting and configured Kubernetes Horizontal Pod Autoscaling (HPA) with metrics-server.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="bg-slate-900/80 p-6 rounded-xl border border-slate-800 space-y-4 hover:border-slate-700 transition-all">
+                    <div class="flex flex-wrap items-center justify-between gap-3">
+                        <span class="px-3 py-1 rounded bg-purple-950 text-purple-400 text-xs font-mono border border-purple-800/80">Jenkins • SonarQube • Trivy • Prometheus • Grafana</span>
+                        <a href="https://github.com/laksh1001/Full-Stack-Blogging-Application" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-slate-800 hover:bg-slate-700 text-purple-400 text-xs font-mono border border-slate-700 transition-all">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                            View Repository
+                        </a>
+                    </div>
+
+                    <h3 class="text-xl font-bold text-white">Production-Grade DevSecOps CI/CD & Cloud Observability Platform</h3>
+
+                    <ul class="space-y-2.5 text-slate-300 text-sm">
+                        <li class="flex items-start gap-2.5">
+                            <i data-lucide="check-circle2" class="w-4 h-4 text-purple-400 shrink-0 mt-0.5"></i>
+                            <span><strong>Automated CI/CD & Shift-Left Security:</strong> Engineered a 10-stage declarative Jenkins pipeline integrating Maven, SonarQube Quality Gates, and Trivy security scanning across source code and Docker images.</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i data-lucide="check-circle2" class="w-4 h-4 text-purple-400 shrink-0 mt-0.5"></i>
+                            <span><strong>Artifact Governance & HTTPS Routing:</strong> Automated build packaging to Sonatype Nexus Repository Manager, deployed Spring Boot on AWS EKS using ALB integrated with ACM for automated SSL/TLS termination and Route 53 custom domain routing.</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i data-lucide="check-circle2" class="w-4 h-4 text-purple-400 shrink-0 mt-0.5"></i>
+                            <span><strong>SRE Telemetry & Observability:</strong> Configured Prometheus and Prometheus Blackbox Exporter for synthetic HTTP probing, monitoring endpoint latency (~20ms), SSL expiration, and uptime through custom Grafana dashboards.</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- LIVE INTERACTIVE TERMINAL SIMULATOR -->
+        <section id="terminal" class="space-y-4">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                        <i data-lucide="terminal-square" class="w-5 h-5 text-emerald-400"></i> Interactive Deployment Simulator
+                    </h2>
+                    <p class="text-xs text-slate-400 font-mono mt-0.5">Simulate a live GitOps sync and DevSecOps build cycle.</p>
+                </div>
+                <div class="flex items-center gap-2 text-xs font-mono text-slate-400">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+                    <span>Status: Healthy</span>
+                </div>
+            </div>
+
+            <div class="bg-slate-950 rounded-xl border border-slate-800 overflow-hidden shadow-xl font-mono text-xs">
+                <!-- Terminal Bar -->
+                <div class="bg-slate-900 px-4 py-2.5 border-b border-slate-800 flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                        <span class="w-3 h-3 rounded-full bg-red-500/80 inline-block"></span>
+                        <span class="w-3 h-3 rounded-full bg-yellow-500/80 inline-block"></span>
+                        <span class="w-3 h-3 rounded-full bg-green-500/80 inline-block"></span>
+                        <span class="ml-2 text-slate-400 text-[11px]">lakshman@eks-cluster-us-east-1:~$ kubectl get pods -n production</span>
+                    </div>
+                    <button onclick="simulateDeployment()" class="px-3 py-1 rounded bg-emerald-950 hover:bg-emerald-900 text-emerald-300 border border-emerald-800/80 transition-all flex items-center gap-1.5 text-[11px]">
+                        <i data-lucide="play" class="w-3 h-3"></i> Trigger Pipeline
+                    </button>
+                </div>
+
+                <!-- Terminal Output Container -->
+                <div id="term-body" class="p-4 h-56 overflow-y-auto term-scroll bg-slate-950 space-y-2 text-slate-300 leading-relaxed">
+                    <div><span class="text-cyan-400">[INFO]</span> Initializing Kubernetes Gateway API Controllers...</div>
+                    <div><span class="text-purple-400">[GITOPS]</span> Syncing state with ArgoCD repository <span class="text-slate-500">(main branch)</span></div>
+                    <div><span class="text-emerald-400">[SUCCESS]</span> 11 Microservices running. Pod status: 11/11 Ready (0 Restarts)</div>
+                    <div><span class="text-amber-400">[METRICS]</span> Prometheus scrape completed: Cluster Latency ~19.2ms | Log Ingestion: 34,210 events/min</div>
+                    <div class="text-slate-500">// Click 'Trigger Pipeline' to simulate a SonarQube & Trivy scan deployment sequence.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EDUCATION & CERTIFICATIONS -->
+        <section id="education" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            <!-- Education -->
+            <div class="bg-slate-900/80 p-5 rounded-xl border border-slate-800 space-y-3">
+                <div class="flex items-center gap-2.5 text-cyan-400 font-mono text-sm font-semibold border-b border-slate-800 pb-2">
+                    <i data-lucide="graduation-cap" class="w-5 h-5"></i> Academic Education
+                </div>
+                <div class="space-y-1">
+                    <h3 class="font-semibold text-white text-sm">Bachelor of Technology (B.Tech.) in Computer Science & Engineering</h3>
+                    <p class="text-xs text-cyan-400 font-mono">Raj Kumar Goel Institute of Technology (R-KGIT)</p>
+                    <div class="flex justify-between items-center text-xs text-slate-400 pt-2 font-mono">
+                        <span>Ghaziabad, UP</span>
+                        <span>CGPA: 7.23 | June 2026</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certifications -->
+            <div class="bg-slate-900/80 p-5 rounded-xl border border-slate-800 space-y-3">
+                <div class="flex items-center gap-2.5 text-purple-400 font-mono text-sm font-semibold border-b border-slate-800 pb-2">
+                    <i data-lucide="award" class="w-5 h-5"></i> Training & Certifications
+                </div>
+                <div class="space-y-1">
+                    <h3 class="font-semibold text-white text-sm">Decoding DevOps: Basics to Advanced Projects with AI</h3>
+                    <p class="text-xs text-purple-400 font-mono">Instructor: Imran Teli (Udemy)</p>
+                    <p class="text-xs text-slate-400 pt-1">Hands-on AWS, Docker, Kubernetes, Terraform, ArgoCD, GitOps & Monitoring.</p>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- FOOTER CONTACT -->
+        <section id="contact" class="bg-slate-900/80 p-8 rounded-xl border border-slate-800 text-center space-y-5">
+            <div class="max-w-xl mx-auto space-y-2">
+                <h2 class="text-2xl font-bold text-white">Let's Connect</h2>
+                <p class="text-slate-400 text-sm">Open for Junior Cloud Engineer, DevOps Engineer, or Site Reliability Engineer (SRE) roles.</p>
+            </div>
+
+            <div class="flex flex-wrap items-center justify-center gap-3">
+                <a href="mailto:lakshmanmadheshiya98@gmail.com" class="px-5 py-2.5 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white font-mono font-semibold text-xs transition-all flex items-center gap-2 shadow-md">
+                    <i data-lucide="mail" class="w-4 h-4"></i>
+                    <span>lakshmanmadheshiya98@gmail.com</span>
+                </a>
+                <a href="https://www.linkedin.com/in/lakshman-m01/" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 font-mono font-semibold text-xs transition-all border border-slate-700 flex items-center gap-2">
+                    <svg class="w-4 h-4 fill-current text-cyan-400" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    <span>LinkedIn Profile</span>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-6 right-6 px-4 py-3 rounded-lg bg-slate-900 border border-cyan-500/50 text-cyan-300 text-xs font-mono shadow-xl transition-all opacity-0 translate-y-10 pointer-events-none z-50 flex items-center gap-2">
+        <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i>
+        <span>Email copied to clipboard!</span>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Terminal Deployment Simulator
+        function simulateDeployment() {
+            const body = document.getElementById('term-body');
+            const logs = [
+                '<span class="text-cyan-400">[BUILD]</span> Triggering Jenkins Declarative Pipeline Stage 1/10...',
+                '<span class="text-purple-400">[SCAN]</span> Running SonarQube Quality Gate audit... Status: PASSED (0 Critical Vulnerabilities)',
+                '<span class="text-purple-400">[SEC]</span> Executing Trivy container image vulnerability scan...',
+                '<span class="text-blue-400">[NEXUS]</span> Archiving application release artifact to Sonatype Nexus Repository Manager',
+                '<span class="text-cyan-400">[GITOPS]</span> Committing updated manifest image tags to ArgoCD repository',
+                '<span class="text-emerald-400">[DEPLOY]</span> AWS Gateway API Controller routing live traffic to updated EKS pod replicas',
+                '<span class="text-amber-400">[SRE]</span> Blackbox Exporter pinging endpoint... Response HTTP 200 OK (~19.2ms latency)'
+            ];
+
+            body.innerHTML = '<div><span class="text-cyan-400">[START]</span> Initiating Live Pipeline Deployment Simulation...</div>';
+            
+            logs.forEach((log, index) => {
+                setTimeout(() => {
+                    const div = document.createElement('div');
+                    div.innerHTML = log;
+                    body.appendChild(div);
+                    body.scrollTop = body.scrollHeight;
+                }, (index + 1) * 600);
+            });
+        }
+
+        // Copy to Clipboard Handler
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text);
+            const toast = document.getElementById('toast');
+            toast.classList.remove('opacity-0', 'translate-y-10', 'pointer-events-none');
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-y-10', 'pointer-events-none');
+            }, 2500);
+        }
+    </script>
+</body>
+</html>
