@@ -79,10 +79,3 @@ kubectl apply -n argocd -f [https://raw.githubusercontent.com/argoproj/argo-cd/s
 
 ---
 
-## 📄 License
-
-Distributed under the MIT License.
-
-```
-
-```
